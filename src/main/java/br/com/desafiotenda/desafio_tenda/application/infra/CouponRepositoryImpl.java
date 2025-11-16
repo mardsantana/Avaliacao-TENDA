@@ -1,5 +1,6 @@
 package br.com.desafiotenda.desafio_tenda.application.infra;
 
+import br.com.desafiotenda.desafio_tenda.application.repositories.CouponRepositoryJPA;
 import br.com.desafiotenda.desafio_tenda.domain.models.CouponModel;
 import br.com.desafiotenda.desafio_tenda.application.repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +20,7 @@ public class CouponRepositoryImpl implements CouponRepository {
     @Override
     public CouponModel save(CouponModel coupon) {
         log.info("[start] CouponRepositoryImpl - save couponId={}", coupon.getId());
-
         CouponModel saved = jpa.save(coupon);
-
         log.info("[finish] CouponRepositoryImpl - save couponId={}", saved.getId());
         return saved;
     }
@@ -29,9 +28,7 @@ public class CouponRepositoryImpl implements CouponRepository {
     @Override
     public Optional<CouponModel> findById(UUID id) {
         log.info("[start] CouponRepositoryImpl - findById id={}", id);
-
         Optional<CouponModel> result = jpa.findById(id);
-
         log.info("[finish] CouponRepositoryImpl - findById found={}", result.isPresent());
         return result;
     }

@@ -15,7 +15,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update   # pode ser create, create-drop, update, validate, none
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
@@ -32,5 +32,5 @@ logging:
   level:
     root: INFO
     org.springframework.web: INFO
-    org.hibernate.SQL: DEBUG            # Mostra as queries
-    org.hibernate.type.descriptor.sql: TRACE  # Mostra parâmetros das queries
+    org.hibernate.SQL: DEBUG           
+    org.hibernate.type.descriptor.sql: TRACE

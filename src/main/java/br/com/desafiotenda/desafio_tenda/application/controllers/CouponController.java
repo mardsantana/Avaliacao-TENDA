@@ -23,9 +23,7 @@ public class CouponController {
     @PostMapping
     public CouponResponse create(@RequestBody @Valid CreateCouponRequest request) {
         log.info("[start] CouponController - create");
-
         CouponResponse response = service.create(request);
-
         log.info("[finish] CouponController - create id={}", response.id());
         return response;
     }
@@ -33,9 +31,7 @@ public class CouponController {
     @GetMapping("/{id}")
     public ResponseEntity<CouponResponse> findById(@PathVariable UUID id) {
         log.info("[start] CouponController - findById id={}", id);
-
         CouponResponse response = service.findById(id);
-
         log.info("[finish] CouponController - findById id={}", id);
         return ResponseEntity.ok(response);
     }
@@ -43,9 +39,7 @@ public class CouponController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
         log.info("[start] CouponController - delete id={}", id);
-
         service.delete(id);
-
         log.info("[finish] CouponController - delete id={}", id);
         return ResponseEntity.noContent().build();
     }

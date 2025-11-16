@@ -23,11 +23,9 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public CouponResponse create(CreateCouponRequest request) {
         log.info("[start] CouponServiceImpl - create");
-
         CouponModel coupon = mapper.toEntity(request);
         coupon.validateForCreation();
         repository.save(coupon);
-
         log.info("[finish] CouponServiceImpl - create");
         return mapper.toResponse(coupon);
     }
@@ -35,10 +33,8 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public CouponResponse findById(UUID id) {
         log.info("[start] CouponServiceImpl - findById id={}", id);
-
         CouponModel coupon = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Coupon not found with id: " + id));
-
         log.info("[finish] CouponServiceImpl - findById");
         return mapper.toResponse(coupon);
     }
@@ -46,13 +42,10 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public void delete(UUID id) {
         log.info("[start] CouponServiceImpl - delete id={}", id);
-
         CouponModel coupon = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Coupon not found with id: " + id));
-
         coupon.softDelete();
         repository.save(coupon);
-
         log.info("[finish] CouponServiceImpl - delete");
     }
 }

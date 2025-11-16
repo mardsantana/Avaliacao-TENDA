@@ -19,7 +19,8 @@ public class CouponMapper {
         String raw = request.code() == null ? "" : request.code();
         String sanitized = raw.replaceAll("[^A-Za-z0-9]", "");
         if (sanitized.length() < 6) {
-            throw new DomainException("coupon code must have at least 6 alphanumeric characters after removing special characters");
+            throw new DomainException
+                    ("coupon code must have at least 6 alphanumeric characters after removing special characters");
         }
         if (sanitized.length() > 6) {
             sanitized = sanitized.substring(0, 6);
