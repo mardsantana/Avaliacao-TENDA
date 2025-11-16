@@ -32,5 +32,11 @@ logging:
   level:
     root: INFO
     org.springframework.web: INFO
-    org.hibernate.SQL: DEBUG           
+    org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql: TRACE
+
+swagger:
+  title: Desafio Tenda API
+  description: API para gerenciar cupons
+  version: 1.0.0
+  path: /swagger-ui.html
